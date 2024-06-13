@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.course.entities.Course;
+import com.microservice.course.http.response.StudentByCourseResponse;
 import com.microservice.course.services.CourseService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,7 +41,7 @@ public class CourseController {
     }
 
     @GetMapping("/search-student/{idCourse}")
-    public ResponseEntity<?> findStudentByIdCourse(@PathVariable Long idCourse) {
+    public ResponseEntity<StudentByCourseResponse> findStudentByIdCourse(@PathVariable Long idCourse) {
         return ResponseEntity.ok(courseService.findStudentByIdCourse(idCourse));
     }
     
